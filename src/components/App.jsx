@@ -37,6 +37,11 @@ export class App extends Component {
   }
 
   componentDidUpdate(_, prevState) {
+    if (!this.state.contacts.length) {
+      contacts.remove();
+      return;
+    }
+
     if (this.state.contacts.length !== prevState.contacts.length) {
       contacts.set(this.state.contacts);
     }
